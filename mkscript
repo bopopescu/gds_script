@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if ! grep "[^[:space:]]" $1 &>/dev/null; then
+cat > $1 << EOF
+# Name: `basename $1`
+# Description:
+# Author: Linuxsea
+# Datatime: `date '+%F %T'`
+# Usage: `basename $1`
+
+EOF
+fi
+
+vim + $1
+
+until bash -n $1 &> /dev/null;do
+        read -p "syntax error, q|Q for quiting: " OPT
+        case $OPT in
+                q|Q)
+                        echo "Quit."
+                        exit 8;;
+                *)
+                        vim + $1
+                        ;;
+        esac
+done
+
+chmod +x $1
+#vim +8 $1
+#vim + $1
+
