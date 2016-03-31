@@ -5,5 +5,5 @@ do
 echo "###### OK ######"
 echo "`date`"
 echo "###### OK ######"
-sleep 1
+sleep 2
 done
