@@ -1,0 +1,522 @@
+#motd file = /etc/rsyncd.motd
+#lock file = /var/run/rsync.lock
+log file = /var/log/rsyncd.log
+pid file = /var/run/rsyncd.pid
+ 
+#[sample]
+#   path = /path/to/sample
+#   comment = this is a sample module
+#   uid = root
+#   gid = root
+#   max connections = 2
+#   timeout = 600
+#   list = yes
+#   read only = no
+#   #auth users = username
+#   #secrets file = /etc/rsyncd.secrets
+ 
+ 
+[lsfqa-small1]
+   path = /pcc/hq-china/small/team1
+   comment = LSF QA - Small Files for Team1
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-lsfqa-small1.lock
+ 
+[lsfqa-small2]
+   path = /pcc/hq-china/small/team2
+   comment = LSF QA - Small Files for Team2
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-lsfqa-small2.lock
+ 
+[lsfqa-small3]
+   path = /pcc/hq-china/small/team3
+   comment = LSF QA - Small Files for Team3
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-lsfqa-small3.lock
+ 
+[lsfqa-large1]
+   path = /pcc/hq-china/large/team1
+   comment = LSF QA - Large Files for Team1
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-lsfqa-large1.lock
+ 
+[lsfqa-large2]
+   path = /pcc/hq-china/large/team2
+   comment = LSF QA - Large Files for Team2
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-lsfqa-large2.lock
+ 
+[lsfqa-large3]
+   path = /pcc/hq-china/large/team3
+   comment = LSF QA - Large Files for Team3
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-lsfqa-large3.lock
+ 
+[lsfqa-lo-priority]
+   path = /pcc/hq-china/lo-priority
+   comment = LSF QA - Low Priority Files
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-lsfqa-lo-priority.lock
+ 
+[lsfqa-hi-priority]
+   path = /pcc/hq-china/hi-priority
+   comment = LSF QA - High Priority Files
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-lsfqa-hi-priority.lock
+ 
+[lsfqa-manual]
+   path = /pcc/hq-china/manual
+   comment = LSF QA - Files for Manual Download
+   uid = root
+   gid = root
+   max connections = 8
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-lsfqa-manual.lock
+ 
+[ftp.platform.com]
+   path = /pcc/internet/ftp.platform.com
+   comment = FTP.PLATFORM.COM
+   uid = root
+   gid = root
+   max connections = 1
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-ftp.platform.com.lock
+
+[ftppabeta]
+   path = /pcc/internet/ftp.platform.com/pabeta
+   comment = FTP.PLATFORM.COM pabeta
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-ftp.platform.com.pabeta.lock
+
+[lsfqa-trusted]
+   path = /pcc/lsfqa-trusted
+   comment = /pcc/lsfqa-trusted for Beijing
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-lsfqa-trusted.lock
+
+[lsfqa-trusted-xian]
+   path = /pcc/lsfqa-trusted
+   comment = /pcc/lsfqa-trusted for Xian
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-lsfqa-trusted-xian.lock
+
+#[symphqa-symph]
+#   path = /pcc/release_eng/work/symphony
+#   comment = /pcc/release_eng/work/symphony
+#   uid = root
+#   gid = root
+#   max connections = 10
+#   timeout = 600
+#   list = yes
+#   read only = yes
+#   #auth users = cnuser
+#   #secrets file = /etc/rsyncd.secrets
+#   lock file = /var/run/rsync-symphqa-symph.lock
+
+[id-trusted]
+   path = /pcc/id_trusted/publish
+   comment = /pcc/id_trsuted/publish
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync-id_trusted.lock
+
+
+[vem]
+   path = /pcc/lsfqa-trusted/vem
+   comment = /pcc/id_trsuted/publish
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_vem.lock
+#[test]
+#   path = /pcc/hq-china/large/team3/ac
+#   comment = /pcc/id_trsuted/publish
+#   uid = nobody
+#   gid = nobody
+#   max connections = 10
+#   timeout = 600
+#   list = yes
+#   read only = yes
+#   #auth users = cnuser
+#   #secrets file = /etc/rsyncd.secrets
+#   lock file = /var/run/rsync-id_testtrusted.lock
+
+[lsfqa-large2bj]
+   path = /pcc/hq-china/large/team2
+   comment = /pcc/id_trsuted/publish
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_lsfqa-large2bj.lock
+
+[lsfqa-large3bj]
+   path = /pcc/hq-china/large/team3
+   comment = /pcc/hq-china/large/team3 for bj 
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_lsfqa-large3bj.lock
+
+[lsfqa-large4-lsfqa-trusted]
+   path = /pcc/hq-china/large/lsfqa-trusted
+   comment = /pcc/hq-china/large/lsfqa-trusted for bj 
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_lsfqa-large4-lsfqa-trusted.lock
+
+[lsfqa-large4-lsfqa-trusted2xian]
+   path = /pcc/hq-china/large/lsfqa-trusted
+   comment = /pcc/hq-china/large/lsfqa-trusted for xian 
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_lsfqa-large4-lsfqa-trusted2xian.lock
+
+#[vem_monte_ext-temp]
+#   path = /pcc/app/vmo_monte_ext
+#   comment = this is temp rsync directory used by Cuijin who is in beijing office.
+#   uid = root
+#   gid = root
+#   max connections = 10
+#   timeout = 600
+#   list = yes
+#   read only = yes
+#   #auth users = cnuser
+#   #secrets file = /etc/rsyncd.secrets
+#   lock file = /var/run/rsync_vem_monte_ext-temp.lock
+
+[pcc-app-liang]
+   path = /pcc/app
+   comment = Wang Liang need those tools, we rsync this directory in the weekend.
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_pcc_app-liang.lock
+
+[pcc-app-liang-test]
+   path = /pcc/app/Linux_jdk1.5.0_04_x86
+   comment = for test use only.
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_pcc_app-liang-test.lock
+
+[pcc-qa-hq2beijing]
+   path = /pcc/qa/HQ_China
+   comment = request by Ming Song, Beijing QA engineer.
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_pcc-qa-hq2beijing.lock
+
+[pcc-lweb-qa]
+   path = /pcc/lweb-qa
+   comment = for lweb backup site
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_pcc-lweb-qa.lock
+
+[OCS5training]
+   path = /pcc/build_eng/work/rocks/emerald/ISOs
+   comment = OCS5training training materials 
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_pcc-lweb-qa.ocs.lock
+
+#[problemdb]
+#   path = /tmp/problem
+#   comment = problem files
+#   uid = root
+#   gid = root
+#   max connections = 10
+#   timeout = 600
+#   list = yes
+#   read only = yes
+#   #auth users = cnuser
+#   #secrets file = /etc/rsyncd.secrets
+#   lock file = /var/run/rsync_problem.lock
+
+#[local-rational2007]
+#   path =  /pcc/local/mnt/rational2007/
+#   comment = local mnt rational2007
+#   uid = root
+#   gid = root
+#   max connections = 10
+#   timeout = 600
+#   list = yes
+#   read only = yes
+#   #auth users = cnuser
+#   #secrets file = /etc/rsyncd.secrets
+#   lock file = /var/run/rsync_local_rational2007.lock
+
+[sasdepot]
+   path =  /scratch/dev2/sasdepot/
+   comment = sasdepot for Tao.liu
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_sasdepot.lock
+
+[release_eng_pm_7_0]
+   path =  /pcc/release_eng/work/pm/7.0
+   comment = release_eng pm 7.0 for Tao.liu
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   #auth users = cnuser
+   #secrets file = /etc/rsyncd.secrets
+   lock file = /var/run/rsync_release_eng_pm_7_0.lock
+
+[lsf_madison_java]
+   path =  /pcc/lsf_madison/Emerald/Proprietary_Software/java
+   comment = lsf_madison java
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   lock file = /var/run/rsync_lsf_madison_java.lock
+
+[release_eng_lsf_8_0_liveconfig_last]
+   path =  /pcc/release_eng/work/lsf/8.0.LiveConfig/last
+   comment = release_eng lsf 8.0 LiveConfig last
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   lock file = /var/run/rsync_release_eng_lsf_8_0_liveconfig_last.lock
+
+[DHARMA]
+   path =  /tmp/lab/windows/DHARMA
+   comment = DHARMA
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   lock file = /var/run/rsync_DHARMA.lock
+
+[0812]
+   path =  /pcc/release_eng/work/vmo/ISF_2_0_Gold_Patch/0812.full_bin
+   comment = isf
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   lock file = /var/run/rsync_ISF_2_0_Gold_Patch_0811_RC4.lock
+
+[pmr_last]
+   path = /pcc/release_eng/work/pmr
+   comment = sync dir "last" under pmr1.5.2 and pmr2.0 for Xinyu Pan in BJ by Jiaxing Du 20111117
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   lock file = /var/run/pmr_last.lock
+
+
+[tftp]
+   path = /pcc/eng/sa/archives/tftpx
+   comment = sync  for self-service
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   lock file = /var/run/pmr_last.lock
+
+[partimg]
+   path = /sg_temp/partimag 
+   comment = sync  for self-service
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   lock file = /var/run/pmr_last.lock
+
+###the release module is used to download rhel6.2 to BJ for Guangbo Shu, by Jiaxing Du 20111205
+[releases]
+   path = /pcc/releases
+   comment = sync rhel6.2 for Gangbo Shu
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   lock file = /var/run/release.lock
+
+# the release_eng module is for Xinyu Pan to sync /pcc/release_eng/work/pmr/pmr1.5.2/last by Jiaxing Du2012022
+[release_eng]
+   path = /pcc/release_eng
+   comment = for Xinyupan
+   uid = root
+   gid = root
+   max connections = 10
+   timeout = 600
+   list = yes
+   read only = yes
+   lock file = /var/run/release_eng.lock
