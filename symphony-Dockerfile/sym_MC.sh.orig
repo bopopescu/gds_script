@@ -1,0 +1,34 @@
+#!/bin/bash
+clear
+set -x
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+M="mn01"
+C="cn0"
+ClientNumber=4
+docker run  -i -t -P --dns=192.168.1.4  --name="mn01" --hostname="mn01" symphony/docker:1.2  M D
+#MasterName=docker ps |grep -v CONTAINER|awk '{print $11}'
+MasterIP=`docker inspect -f '{{ .NetworkSettings.IPAddress }}' $M`
+Comm_CIP=`echo "$MasterIP"|awk -F "[. ]" '{print $1"."$2"."$3}'`
+echo "$Comm_CIP";
+Format="address=/$M.demo.org/$MasterIP"
+rm -rf /etc/dnsmasq.d/symphony.conf 
+echo "$Format" > /etc/dnsmasq.d/symphony.conf
+CIP=`echo "$MasterIP"|awk -F "[. ]" '{print int($4)}'`
+docker ps
+
+for ((i=1;i<=ClientNumber;i++))
+do 
+CIPP=$(($CIP+$i))
+echo "address=/$C$i.demo.org/$Comm_CIP.$CIPP" >> /etc/dnsmasq.d/symphony.conf 
+done
+
+echo "server=/#/192.168.1.4" >> /etc/dnsmasq.d/symphony.conf
+service dnsmasq restart
+
+for ((ii=1;ii<=ClientNumber;ii++))
+do
+docker run  -i -t -P --dns=192.168.1.4  --name="$C$ii" --hostname="$C$ii"  symphony/docker:1.2 C D $M
+done
+docker ps

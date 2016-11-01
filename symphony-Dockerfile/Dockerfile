@@ -1,0 +1,55 @@
+# Creates pseudo distributed hadoop 2.4
+#
+# docker build -t="sequenceiq/hadoop-cluster-docker:2.4.1" .
+
+#FROM hjd48/redhat:latest
+FROM  redhat63:1.6
+
+#MAINTAINER NtadepalLI
+
+USER root
+
+# pseudo distributed
+
+ADD syminstall.sh /opt/syminstall.sh
+ADD platform_sym_adv_entitlement.dat  /opt/platform_sym_adv_entitlement.dat
+ADD symcompSetup6.1.0_lnx26-lib23-x64.bin  /opt/symcompSetup6.1.0_lnx26-lib23-x64.bin
+ADD symSetup6.1.0_lnx26-lib23-x64.bin  /opt/symSetup6.1.0_lnx26-lib23-x64.bin
+RUN chmod 755  /opt/platform_sym_adv_entitlement.dat
+RUN chmod 755  /opt/symcompSetup6.1.0_lnx26-lib23-x64.bin
+RUN chmod 755  /opt/symSetup6.1.0_lnx26-lib23-x64.bin
+#RUN chown sym61:sym61 /opt/syminstall.sh
+RUN chmod 777 /opt/syminstall.sh
+ENV BOOTSTRAP /opt/syminstall.sh
+
+# passwordless ssh
+RUN rm -f /etc/ssh/ssh_host_dsa_key
+RUN rm -f /etc/ssh/ssh_host_rsa_key
+RUN rm -f /root/.ssh/id_rsa
+
+RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key
+RUN ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key
+RUN ssh-keygen -q -N "" -t rsa -f /root/.ssh/id_rsa
+RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
+
+ADD ssh_config /root/.ssh/config
+RUN chmod 600 /root/.ssh/config
+RUN chown root:root /root/.ssh/config
+
+RUN sed -i "/^[^#]*UsePAM/ s/.*/#&/" /etc/ssh/sshd_config
+RUN echo "UsePAM no" >> /etc/ssh/sshd_config
+RUN echo "Port 2122" >> /etc/ssh/sshd_config
+RUN service sshd start
+#modify /etc/hosts file
+#ADD hosts /tmp/hosts
+#RUN mv /tmp/hosts /etc/hosts
+#RUN mkdir -p -- /lib-override 
+#ADD libnss_files.so.2 /lib-override/libnss_files.so.2
+#RUN perl -pi -e 's:/etc/hosts:/tmp/hosts:g' /lib-override/libnss_files.so.2
+#ENV LD_LIBRARY_PATH /lib-override
+#expose ports
+    
+#EXPOSE 50020 50021 50090 50070 50010 50011 50075 50076 8031 8032 8033 8040 8042 49707 22 8088 8030 8080
+
+CMD ["-h"]
+ENTRYPOINT ["/opt/syminstall.sh"]
