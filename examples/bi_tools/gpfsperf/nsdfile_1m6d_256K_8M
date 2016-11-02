@@ -1,0 +1,34 @@
+#%pool: pool=system  blockSize=256K layoutMap=cluster allowWriteAffinity=no
+#%pool: pool=datapool blockSize=2M layoutMap=cluster allowWriteAffinity=yes writeAffinityDepth=1 blockGroupFactor=512
+
+%nsd: nsd=c3m3n01ib0_meta_sdh  device=/dev/sdh servers=c3m3n01ib0.gpfs.net usage=metadataOnly failureGroup=1 pool=system
+%nsd: nsd=c3m3n01ib0_data_sdb  device=/dev/sdb servers=c3m3n01ib0.gpfs.net usage=dataOnly failureGroup=1 pool=datapool
+%nsd: nsd=c3m3n01ib0_data_sdc  device=/dev/sdc servers=c3m3n01ib0.gpfs.net usage=dataOnly failureGroup=1 pool=datapool
+%nsd: nsd=c3m3n01ib0_data_sdd  device=/dev/sdd servers=c3m3n01ib0.gpfs.net usage=dataOnly failureGroup=1 pool=datapool
+%nsd: nsd=c3m3n01ib0_data_sde  device=/dev/sde servers=c3m3n01ib0.gpfs.net usage=dataOnly failureGroup=1 pool=datapool
+%nsd: nsd=c3m3n01ib0_data_sdf  device=/dev/sdf servers=c3m3n01ib0.gpfs.net usage=dataOnly failureGroup=1 pool=datapool
+%nsd: nsd=c3m3n01ib0_data_sdg  device=/dev/sdg servers=c3m3n01ib0.gpfs.net usage=dataOnly failureGroup=1 pool=datapool
+
+%nsd: nsd=c3m3n02ib0_meta_sdh  device=/dev/sdh servers=c3m3n02ib0.gpfs.net usage=metadataOnly failureGroup=2 pool=system
+%nsd: nsd=c3m3n02ib0_data_sdb  device=/dev/sdb servers=c3m3n02ib0.gpfs.net usage=dataOnly failureGroup=2 pool=datapool
+%nsd: nsd=c3m3n02ib0_data_sdc  device=/dev/sdc servers=c3m3n02ib0.gpfs.net usage=dataOnly failureGroup=2 pool=datapool
+%nsd: nsd=c3m3n02ib0_data_sdd  device=/dev/sdd servers=c3m3n02ib0.gpfs.net usage=dataOnly failureGroup=2 pool=datapool
+%nsd: nsd=c3m3n02ib0_data_sde  device=/dev/sde servers=c3m3n02ib0.gpfs.net usage=dataOnly failureGroup=2 pool=datapool
+%nsd: nsd=c3m3n02ib0_data_sdf  device=/dev/sdf servers=c3m3n02ib0.gpfs.net usage=dataOnly failureGroup=2 pool=datapool
+%nsd: nsd=c3m3n02ib0_data_sdg  device=/dev/sdg servers=c3m3n02ib0.gpfs.net usage=dataOnly failureGroup=2 pool=datapool
+
+%nsd: nsd=c3m3n03ib0_meta_sdh  device=/dev/sdh servers=c3m3n03ib0.gpfs.net usage=metadataOnly failureGroup=3 pool=system
+%nsd: nsd=c3m3n03ib0_data_sdb  device=/dev/sdb servers=c3m3n03ib0.gpfs.net usage=dataOnly failureGroup=3 pool=datapool
+%nsd: nsd=c3m3n03ib0_data_sdc  device=/dev/sdc servers=c3m3n03ib0.gpfs.net usage=dataOnly failureGroup=3 pool=datapool
+%nsd: nsd=c3m3n03ib0_data_sdd  device=/dev/sdd servers=c3m3n03ib0.gpfs.net usage=dataOnly failureGroup=3 pool=datapool
+%nsd: nsd=c3m3n03ib0_data_sde  device=/dev/sde servers=c3m3n03ib0.gpfs.net usage=dataOnly failureGroup=3 pool=datapool
+%nsd: nsd=c3m3n03ib0_data_sdf  device=/dev/sdf servers=c3m3n03ib0.gpfs.net usage=dataOnly failureGroup=3 pool=datapool
+%nsd: nsd=c3m3n03ib0_data_sdg  device=/dev/sdg servers=c3m3n03ib0.gpfs.net usage=dataOnly failureGroup=3 pool=datapool
+
+%nsd: nsd=c3m3n04ib0_meta_sdh  device=/dev/sdh servers=c3m3n04ib0.gpfs.net usage=metadataOnly failureGroup=4 pool=system
+%nsd: nsd=c3m3n04ib0_data_sdb  device=/dev/sdb servers=c3m3n04ib0.gpfs.net usage=dataOnly failureGroup=4 pool=datapool
+%nsd: nsd=c3m3n04ib0_data_sdc  device=/dev/sdc servers=c3m3n04ib0.gpfs.net usage=dataOnly failureGroup=4 pool=datapool
+%nsd: nsd=c3m3n04ib0_data_sdd  device=/dev/sdd servers=c3m3n04ib0.gpfs.net usage=dataOnly failureGroup=4 pool=datapool
+%nsd: nsd=c3m3n04ib0_data_sde  device=/dev/sde servers=c3m3n04ib0.gpfs.net usage=dataOnly failureGroup=4 pool=datapool
+%nsd: nsd=c3m3n04ib0_data_sdf  device=/dev/sdf servers=c3m3n04ib0.gpfs.net usage=dataOnly failureGroup=4 pool=datapool
+%nsd: nsd=c3m3n04ib0_data_sdg  device=/dev/sdg servers=c3m3n04ib0.gpfs.net usage=dataOnly failureGroup=4 pool=datapool

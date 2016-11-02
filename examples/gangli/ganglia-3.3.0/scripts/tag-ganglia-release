@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+#	$Author$
+#
+
+TAG=$1
+
+if [ "$TAG" == "" ]; then
+	echo "syntax: $0 TAG FROM"
+	echo "	TAG : destination git tag / version"
+	exit
+fi
+
+git tag -m "Tag release ${TAG}" "${TAG}"
+

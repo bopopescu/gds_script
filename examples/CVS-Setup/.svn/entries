@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="9"
+   name=""
+   committed-date="2010-01-22T03:13:14.673800Z"
+   url="svn://bjgw/wrk/vt80/scr165/scripts/CVS-Setup"
+   last-author="root"
+   kind="dir"
+   uuid="2d9619a9-9ec0-6505-f47e-ff1a687536b5"
+   revision="15"/>
+<entry
+   committed-rev="9"
+   name="logcommit.pl"
+   text-time="2010-01-22T07:20:35.000000Z"
+   committed-date="2010-01-22T03:13:14.673800Z"
+   checksum="5074022823c5ddc3e90e9d6ebfa7d5da"
+   last-author="root"
+   kind="file"
+   prop-time="2010-01-22T07:20:35.000000Z"/>
+<entry
+   committed-rev="9"
+   name="install-cvs.sh"
+   text-time="2010-01-22T07:20:35.000000Z"
+   committed-date="2010-01-22T03:13:14.673800Z"
+   checksum="cd7b74ef1e803b0015b41efd9f1ec23c"
+   last-author="root"
+   kind="file"
+   prop-time="2010-01-22T07:20:35.000000Z"/>
+<entry
+   committed-rev="9"
+   name="checkperm.pl"
+   text-time="2010-01-22T07:20:35.000000Z"
+   committed-date="2010-01-22T03:13:14.673800Z"
+   checksum="5cf79dd6d9759449d4eb57510b52a0eb"
+   last-author="root"
+   kind="file"
+   prop-time="2010-01-22T07:20:35.000000Z"/>
+</wc-entries>

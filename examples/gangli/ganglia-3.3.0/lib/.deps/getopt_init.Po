@@ -1,0 +1,1 @@
+getopt_init.o: getopt_init.c

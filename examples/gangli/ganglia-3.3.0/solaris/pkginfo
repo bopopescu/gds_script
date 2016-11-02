@@ -1,0 +1,7 @@
+PKG=GNGgmond
+NAME=GNGganglia_gmond - Ganglia monitors system resources across the cluster.
+ARCH=x86_64
+VERSION=3.3.0,REV=1
+CATEGORY=system
+EMAIL=ganglia-general@lists.sourceforge.net
+BASEDIR=/opt/ganglia

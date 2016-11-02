@@ -1,0 +1,85 @@
+#!/bin/bash
+prepare_menu()
+{
+           while read line; do
+	                      eval array=( $(echo $line | sed -n 's/[[:space:]]*#[[:space:]]*#*[[:space:]]*(menu)[[:space:]]*:[[:space:]]*(.*)[[:space:]]*:[[:space:]]*(.*)[[:space:]]*:[[:space:]]*(.*)[[:space:]]*:[[:space:]]*(.*)[[:space:]]*#*[[:space:]]*$/"1" "2" "3" "4" "5"/pg') )
+				                 (( ${#array[@]} )) || continue
+						                 declare -a menus=( ${array[1]//->/ } )
+								                 declare menu="menu_${menus[0]}"
+										                 declare title="${menus[0]}"
+												                 for name in $(echo ${menus[@]:1}); do
+														                            title="${title}->${name}"
+																	                               submenu=${menu}_${name}[0]
+																				                               if [ -z "${!submenu}" ] ; then
+																								                                  eval ${menu}_${name}=( ${title} )
+																												                                     # eval ${menu}_${name}[4]=0
+																												                                     eval count=${$menu[4]}
+	                                   eval $menu[$(($count+5))]=${menu}_${name}
+					                                   eval $menu[4]=$(($count+1))
+									                              fi
+												                              menu="${menu}_${name}"
+															                      done
+																	                      eval $menu[1]="${array[2]}"
+																			                      eval $menu[2]="${array[3]}"
+
+																					                      if [ -n "${array[4]}" ]; then
+																								                         eval $menu[3]="${array[4]}"
+																											                    fi
+																													            done < $1
+}
+
+
+show_menu()
+{
+           declare title
+	              declare -i count
+		              eval title=${$1[0]}
+	           eval count=${$1[4]}
+		          
+		           while : ; do
+				                      echo
+						                      echo "$title:"
+								                      echo
+										                      declare item
+												                      for (( i=0; i<$count; i++ )); do
+															                         eval item=${$1[$(($i+5))]}
+				                           eval echo ${$item[2]}
+							                   done
+									                      echo
+											                      echo -n "Please choice the function"
+													                      if [ "$1" != "main" ]; then
+																                         echo -n ", [q] for return up"
+																			                    fi
+																					                    echo -n ": "
+																							                    read choice
+																									                    [[ -z "$choice" ]] && continue
+																											                    declare shortkey
+																													                    for (( i=0; i<$count; i++ )); do
+																															                               eval item=${$1[$(($i+5))]}
+									                           eval shortkey=${$item[1]}
+												                           [[ "$choice" == "$shortkey" ]] && break
+															                      done
+																	                      if [ "$choice" == "$shortkey" ]; then
+																				                         declare exec
+																							                            eval exec=${$item[3]}
+															                           if [ "$exec" != "" ]; then
+																		                                      echo
+																							                                 eval $exec
+																											                                 echo
+																															                                 echo -n "Press any key to continue ..."
+																																			                                 read choice
+																																							                                 echo
+																																											                         else
+																																														                                    show_menu $item
+																																																		                               fi
+																																																					                       elif [ "$choice" == "q" ]; then
+																																																							                               return
+																																																										                       fi
+																																																												               done       
+}
+
+
+
+declare -a menu_main=( "main" "ShortKey" "Main" "Exec" "0")
+prepare_menu $0
+show_menu menu_main
